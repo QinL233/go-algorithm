@@ -12,7 +12,7 @@ import (
 输出所有不重复的排序可能
 */
 func TestDfs(t *testing.T) {
-	input := []int{1, 2, 2, 3}
+	input := []int{1}
 	result := make([][]int, 0)
 	uniMap := make(map[string]bool, 0)
 	for i := 0; i < len(input); i++ {
@@ -44,6 +44,10 @@ func TestDfs(t *testing.T) {
 结社
 */
 func dfs(left []int, right []int) (out [][]int) {
+	if len(right) < 1 {
+		out = append(out, left)
+		return
+	}
 	if len(right) == 1 {
 		out = append(out, append(left, right[0]))
 		return
